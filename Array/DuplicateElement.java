@@ -56,6 +56,7 @@ class DuplicateElement{
             result.add(-1);
         }
 
-        return  result.stream().mapToInt(i -> i).toArray();
+        return  result.stream().mapToInt(i -> i).toArray(); 
+        //directly we can just return the ArrayList
     }
 }
