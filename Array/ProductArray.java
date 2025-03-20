@@ -8,26 +8,24 @@ class ProductArray{
 
     }
 
+    //brute force
     public static int[] productExcpetSelf(int arr[]){
         int n = arr.length;
-
-        int  res[] = new int[n];
-        // for(int i=0;i<arr.length;i++){
-        //     res[i] = 1;
-        // }
-
+        int res[] =new int[n];
 
         for(int i=0;i<n;i++){
-            int prod = 1;
-        for(int j=0;j<arr.length;j++){
-            if (i != j){
-                prod *= arr[j];
+            int res[i] = 1;
+
+            for(int j=0;j<n;j++){
+                if(i != j){
+                    res[i] = arr[i] *arr[j];
+                }
             }
         }
-        res[i] = prod;
+
+    
     }
-     return res;
-    }
+
 
     //optiised approach using prefix and suffix
 

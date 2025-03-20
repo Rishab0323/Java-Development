@@ -4,7 +4,7 @@ class RotateArray{
         int d = 2;
         method1(arr,d);
         for(int i=0;i<arr.length;i++){
-            System.out.println()
+            System.out.println();
         }
         
 
