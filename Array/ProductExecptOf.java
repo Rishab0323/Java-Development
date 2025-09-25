@@ -1,4 +1,4 @@
-class  ProductExecptOf{
+class  git ProductExecptOf{
     public int[] productExceptSelf(int[] nums) {
         int product [] = new int[nums.length];
         int i = 0;
