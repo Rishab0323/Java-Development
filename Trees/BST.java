@@ -6,7 +6,7 @@ class BST{
         private Node left;
         private Node right;
 
-        public void Node(int value){
+        public Node(int value){
             this.value = value;
         }
 
@@ -32,8 +32,8 @@ class BST{
         return root == null;
     }
 
-    public void insert(){
-
+    public void insert(int value){
+        root = insert(value,root);
     }
 
     private Node insert(int value,Node node){
@@ -49,20 +49,46 @@ class BST{
         if(value > node.value){
             node.right = insert(value,node.right);
         }
+
+        node.height = Math.max(height(node.left),height(node.right)) + 1;
         return node;
     }
 
-    public void display(){
-        display(root, "Root node ");
+    public void populate(int[] nums){
+        for(int i=0;i<nums.length;i++){
+            this.insert(nums[i]);
+        }
     }
 
-    public void display(Node node,String details){
+    public boolean balanced(){
+        return balanced(root);
+    }
+
+    private boolean balanced(Node node){
+        if(node == null){
+            return true;
+        }
+        return Math.abs(height(node.left) - height(node.right)) <= 1 && balanced(node.left) && balanced(node.right);
+    }
+
+    public void display(){
+        display(this.root, "Root Node : ");
+    }
+
+    private void display(Node node,String details){
         if(node == null){
             return;
         }
-        System.out.println(details + node.getValue());
-        display(node.left, "left child of " + node.getValue() +" : ");
-        display(node.right, "Right child of " + node.getValue() +" : ");
+        System.out.println(details + node.value);
+        display(node.left, "left child of " + node.value + " : ");
+        display(node.right, "Right child of " + node.value + " : ");
+    }
+
+    public static void main(String [] args){
+        BST bt = new BST();
+        int nums[] = {5,2,7,1,4,6,9,8,3,10};
+        bt.populate(nums);
+        bt.display();
     }
 
 }
