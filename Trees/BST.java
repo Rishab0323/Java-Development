@@ -60,6 +60,21 @@ class BST{
         }
     }
 
+    public void populated(int[] nums){
+        pupulate(nums,0,nums.length);
+    }
+
+    private void populateSorted(int[] nums,int start,int end){
+        if(start >= end){
+            return;
+        }
+
+        int mid = (start + end)/2;
+        this.insert(nums[mid]);
+        populateSorted(nums,start,mid);
+        populatedSorted(nums,mid+1,end);
+    }
+
     public boolean balanced(){
         return balanced(root);
     }
@@ -82,6 +97,34 @@ class BST{
         System.out.println(details + node.value);
         display(node.left, "left child of " + node.value + " : ");
         display(node.right, "Right child of " + node.value + " : ");
+    }
+
+    void preorder(){
+        preorder(node);
+    }
+
+    private void preorder(Node node){
+        if(node == null){
+            return;
+        }
+        System.out.println(node.value =" ");
+        preorder(node.left);
+        preorder(node.right);
+    }
+
+
+    void inorder(){
+        preorder(node);
+    }
+
+    private void inorder(Node node){
+        if(node == null){
+            return;
+        }
+        
+        preorder(node.left);
+        preorder(node.right);
+        System.out.println(node.value +" ");
     }
 
     public static void main(String [] args){
