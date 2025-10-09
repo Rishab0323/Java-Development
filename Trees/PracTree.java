@@ -56,7 +56,7 @@ public void populate(Node node){
     }
 
     public List<List<Integer>> levelOrder(){
-        List<List<Integer> res = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
 
         if(root == null){
             return res;
