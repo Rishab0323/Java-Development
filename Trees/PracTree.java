@@ -13,6 +13,16 @@ class PrTree{
 
     }
 
+
+public void populate(Node node){
+    Sytstem.out.println(" insert value in tree 1 for left / other num for right  ");
+    Scanner sc = new Scanner(System.in);
+    int decision = sc.nextInt();
+    if(decision != 1){
+        insert(node,)
+    }
+
+}
     private Node insert(Node node,int value){
         if(node == null){
             Node newNode = new Node(value);
@@ -43,6 +53,35 @@ class PrTree{
         System.out.println(root.value);
         return;
         
+    }
+
+    public List<List<Integer>> levelOrder(){
+        List<List<Integer> res = new ArrayList<>();
+
+        if(root == null){
+            return res;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while(!queue.isEmpty()){
+            int levelSize = queue.size();
+            List<Integer> currentLevel = new ArrayList<>(levelSize);
+
+            for(int i=0;i<levelSize;i++){
+                TreeNode currentNode = queue.poll();
+                currentLevel.add(currentNode.value);
+                if(currentNode.left != null){
+                    queue.offer(currentNode.left);
+                }
+                if(currentNode.right != null){
+                    queue.offer(currentNode.right);
+                }
+            }
+            res.add(currentLevel);
+        }
+        return res;
     }
 }
 
