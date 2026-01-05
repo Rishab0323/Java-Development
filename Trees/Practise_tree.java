@@ -38,6 +38,35 @@ class Practise_tree{
     Node getValue(){
         return value;
     }
+
+public List<List<Integer>> levelOrder(TreeNode root){
+    List<List<Intger>> result = new ArrayList<>();
+
+    if(root == null){
+        return result;
+    }
+
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.offer(root);
+
+    While(!queue.isEmpty()){
+        int levelSize = queue.size();
+        List<Integer> currentLevel = new ArrayList<>(levelSize);
+        for(int i=0;o<levelSize;i++){
+            TreeNode  cuurentNode =queue.poll();
+            currentLevel.add(currentNode).val;
+            if(curentNode.left != null ){
+                queue.offer(curentNode.left);
+            }
+            if(currentLevel.right != null){
+                queue.offer(currentNode.right);
+            }
+        }
+        result.add(currentLevel);
+    }
+    return result;
+}
+
 }
 
 class Practise_tree{
