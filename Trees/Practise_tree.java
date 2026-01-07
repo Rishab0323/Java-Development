@@ -55,7 +55,7 @@ public List<List<Integer>> levelOrder(TreeNode root){
         List<Integer> currentLevel = new ArrayList<>(levelSize);
         for(int i=0;o<levelSize;i++){
             TreeNode  cuurentNode =queue.poll();
-            currentLevel.add(currentNode).val;
+            currentLevel.add(currentNode.val);
             if(curentNode.left != null ){
                 queue.offer(curentNode.left);
             }
@@ -164,6 +164,38 @@ public List<Double> averageOfLevels(Node root){
     }
     return root;
 }
+
+//leetcode problem 199
+public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+
+    if(root == null){
+        return result;
+    }
+
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.offer(root);
+
+    while(!queue.isEmpty()){
+        int levelSize = queue.size();
+        
+        for(int i=0;i<levelSize;i++){
+            TreeNode  currentNode =queue.poll();
+            
+            if(i==levelSize -1){
+                result.add(currentNode.val);
+            }
+
+            if(currentNode.left != null ){
+                queue.offer(currentNode.left);
+            }
+            if(currentNode.right != null){
+                queue.offer(currentNode.right);
+            }
+        }    
+    }
+    return result;
+    }
 
 } 
 
