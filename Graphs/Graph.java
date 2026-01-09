@@ -10,6 +10,34 @@ import java.util.*;
         this.dest = dest;
         this.wt = wt;
         }
+    // dfs
+        public void dfs(ArrayList<Edge> graph,int cur,boolean vis[]){
+            System.out.println(curr +" ");
+            vis[cur] = true;
+
+            for(int i=0;i<graph[cur].size();i++){
+                Edge e = graph[cur].get(i);
+                if(!vis[cur]){
+                    dfs(graph,e.dost,vis);
+                }
+            }
+        }
+
+        //bfs
+        public void bfs(ArrayList<Edge>[] graph){
+            Queue<Integer> q= new LinkedList<>();
+            boolean vis[] = new boolean[graph.length];
+            q.add(0);
+
+            while(!q.size()){
+                System.out.print(cur +" ");
+                vis[cur] = true;
+                for(int i=0;i<graph[cur].size;i++){
+                    Edge e = graph[cur].get(i);
+                    q.add(e.dost);
+                }
+            }
+        }
     }
 
     
@@ -17,7 +45,7 @@ class Graph{
     public static void main(String [] args){
 
         int V = 5;
-        List<List<Edge>> graph = new ArrayList<>();
+        ArrayList<Edge>[] graph = new ArrayList[V];
 
         for(int i=0;i<V;i++){
             graph[i] = new ArrayList<>();
