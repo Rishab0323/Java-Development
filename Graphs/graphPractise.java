@@ -28,8 +28,25 @@ class graphPractise{
             }
             System.out.println();
         }
+
+        
    }
 
+    //dfs
+    public void dfs(int src){
+            Map<Integer,Boolean> visited = new HashMap<>();
+            dfsHelper(src,visited);
+        }
+
+        public void dfsHelper(int src,Map<Integer,Boolean> visited){
+            visited.put(src,true);
+            System.out.print(src +" ");
+            for(int neighbor : adj[src]){
+                if(!visited.get(neighbor)){
+                    dfsHelper(neighbor,visited);
+                }
+            }
+        }
    public static void main(String[] args){
         graphPractise g= new graphPractise(5);
         g.addEdge(1,0,true);
